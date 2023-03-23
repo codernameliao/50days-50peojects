@@ -1,0 +1,47 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* background-color: rgb(241, 92, 202); */
+    width: 800px;
+    height: 500px;
+}
+
+.panel {
+    float: left;
+    border-radius: 50px;
+    width: 100px;
+    height: 500px;
+    cursor: pointer;
+    position: relative;
+    flex: 1;
+    margin: 10px;
+    /* 动画过渡效果 */
+    transition: all 0.7s ease-in;
+}
+
+.panel.active {
+    flex: 5;
+}
+
+h3 {
+    position: absolute;
+    left: 35px;
+    bottom: 20px;
+    font-size: 24px;
+    opacity: 0;
+    color: white;
+}
+
+.panel.active h3 {
+    opacity: 1;
+    transition: opacity 0.3s ease-in 0.4s;
+}
+
+
+/* transition: property duration timing-function delay; */

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第一个项目--扩展卡片</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            /* background-color: rgb(241, 92, 202); */
+            width: 800px;
+            height: 500px;
+        }
+        
+        .panel {
+            border-radius: 50px;
+            float: left;
+            width: 100px;
+            height: 500px;
+            cursor: pointer;
+            position: relative;
+            flex: 1;
+            margin: 10px;
+            /* 动画过渡效果 */
+            transition: all 0.7s ease-in;
+            background-color: aqua;
+        }
+        
+        .panel.active {
+            flex: 5;
+        }
+        /*         
+        h3 {
+            position: absolute;
+            left: 35px;
+            bottom: 20px;
+            font-size: 24px;
+            opacity: 0;
+            color: white;
+        }
+        
+        .panel.active h3 {
+            opacity: 1;
+            transition: opacity 0.3s ease-in 0.4s;
+        } */
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="container">
+            <div class="panel" v-for="(item, index) in images" :style="{backgroundImage:`url(${item.url}})`}" v-on="handleclass()">
+
+                <h3>{{item.name}}
+
+                </h3>
+            </div>
+        </div>
+
+
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data() {
+                return {
+                    images: [{
+                        id: 1,
+                        name: 'morning',
+                        url: '../photos/morning.jpg'
+                    }, {
+                        id: 1,
+                        name: 'noon',
+                        url: '../photos/noon.jpg',
+                    }, {
+                        id: 1,
+                        name: 'afternoon',
+                        url: '../photos/afternoon.jpg',
+                    }, {
+                        id: 1,
+                        name: 'evenfal',
+                        url: '../photos/evenfall.jpg',
+                    }, {
+                        id: 1,
+                        name: 'evening',
+                        url: '../photos/evening.jpg',
+                    }, ]
+                }
+            },
+            methods: {
+                handleclass() {
+                    // this.classList.add('active')
+
+                }
+            },
+
+        })
+    </script>
+
+</body>
+
+</html>

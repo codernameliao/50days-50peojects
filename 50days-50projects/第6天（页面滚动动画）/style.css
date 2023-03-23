@@ -1,0 +1,90 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #efedd6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* 这个项目需要滚动条，就不用设置下面的两行代码了 */
+    /* height: 100vh; */
+    /* 取消横向滚动条 */
+    overflow-x: hidden;
+    margin: 0;
+}
+
+h1 {
+    margin: 10px;
+}
+
+.box {
+    background-color: steelblue;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    height: 200px;
+    margin: 10px;
+    border-radius: 10px;
+    /* 阴影 */
+    box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.3);
+    /* 动画 */
+    transition: transform 2s ease;
+}
+
+
+/* 第四个之后所有偶数的box换个方向进入 */
+
+.box:nth-of-type(even) {
+    transform: translateX(-400%);
+}
+
+.box:nth-of-type(odd) {
+    transform: translateX(400%);
+}
+
+.box.show {
+    transform: translateX(0);
+}
+
+.box h2 {
+    font-size: 45px;
+}
+
+
+/* 前3个盒子的默认动画 */
+
+@keyframes rightmove {
+    0% {
+        transform: translateX(400%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes leftmove {
+    0% {
+        transform: translateX(-400%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+#rightactive {
+    /* 第二步：使用动画 */
+    animation-name: rightmove;
+    animation-duration: 1.3s;
+    transform: translateX(0);
+}
+
+#leftactive {
+    /* 第二步：使用动画 */
+    animation-name: leftmove;
+    animation-duration: 1.3s;
+    transform: translateX(0);
+}
